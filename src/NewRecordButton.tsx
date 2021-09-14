@@ -1,7 +1,9 @@
+import { MdAdd } from "react-icons/md";
+
 function NewRecordButton() {
   return (
-    <div className="hidden shadow flex-wrap content-center py-3 px-5 text-white bg-blue-600 rounded-full lg:block">
-      New Record +
+    <div className="absolute text-2xl bottom-20 right-4 shadow-md p-4 text-sectext bg-secondary rounded-2xl md:right-16 ">
+      <MdAdd />
     </div>
   );
 }

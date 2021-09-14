@@ -1,6 +1,6 @@
-import "./App.css";
 import Navbar from "./Navbar";
-import NewRecordFab from "./NewRecordFab";
+import NewRecordButton from "./NewRecordButton";
+import "product-sans-webfont/GoogleSans.css";
 // import { initializeApp } from "firebase/app";
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -22,8 +22,8 @@ import NewRecordFab from "./NewRecordFab";
 function App() {
   return (
     <div className="App">
+      <NewRecordButton />
       <Navbar />
-      <NewRecordFab />
     </div>
   );
 }
