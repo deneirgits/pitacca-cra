@@ -4,51 +4,116 @@ function AccountList() {
   return (
     <div className="bg-primbg">
       <div className="p-2">
-        <div className="font-medium py-2">Accounts</div>
+        <div className="font-medium py-2 text-primtext">Accounts</div>
         <div className="grid grid-cols-3 gap-1 md:grid-cols-4 lg:grid-cols-5">
           {/* TODO: Remove placeholder data */}
-          <Account name="Cash" value={1000.0} currency="PHP" color="red" />
-          <Account name="Cash" value={1000.0} currency="PHP" color="pink" />
-          <Account name="Cash" value={1000.0} currency="PHP" color="purple" />
           <Account
             name="Cash"
             value={1000.0}
             currency="PHP"
-            color="deep-purple"
+            color="bg-acc-red"
           />
-          <Account name="Cash" value={1000.0} currency="PHP" color="indigo" />
-          <Account name="Cash" value={1000.0} currency="PHP" color="blue" />
           <Account
             name="Cash"
             value={1000.0}
             currency="PHP"
-            color="light-blue"
+            color="bg-acc-pink"
           />
-          <Account name="Cash" value={1000.0} currency="PHP" color="cyan" />
-          <Account name="Cash" value={1000.0} currency="PHP" color="teal" />
-          <Account name="Cash" value={1000.0} currency="PHP" color="green" />
           <Account
             name="Cash"
             value={1000.0}
             currency="PHP"
-            color="light-green"
+            color="bg-acc-purple"
           />
-          <Account name="Cash" value={1000.0} currency="PHP" color="lime" />
-          <Account name="Cash" value={1000.0} currency="PHP" color="yellow" />
-          <Account name="Cash" value={1000.0} currency="PHP" color="amber" />
-          <Account name="Cash" value={1000.0} currency="PHP" color="orange" />
           <Account
             name="Cash"
             value={1000.0}
             currency="PHP"
-            color="deep-orange"
+            color="bg-acc-deep-purple"
           />
-          <Account name="Cash" value={1000.0} currency="PHP" color="grey" />
           <Account
             name="Cash"
             value={1000.0}
             currency="PHP"
-            color="blue-grey"
+            color="bg-acc-indigo"
+          />
+          <Account
+            name="Cash"
+            value={1000.0}
+            currency="PHP"
+            color="bg-acc-blue"
+          />
+          <Account
+            name="Cash"
+            value={1000.0}
+            currency="PHP"
+            color="bg-acc-light-blue"
+          />
+          <Account
+            name="Cash"
+            value={1000.0}
+            currency="PHP"
+            color="bg-acc-cyan"
+          />
+          <Account
+            name="Cash"
+            value={1000.0}
+            currency="PHP"
+            color="bg-acc-teal"
+          />
+          <Account
+            name="Cash"
+            value={1000.0}
+            currency="PHP"
+            color="bg-acc-green"
+          />
+          <Account
+            name="Cash"
+            value={1000.0}
+            currency="PHP"
+            color="bg-acc-light-green"
+          />
+          <Account
+            name="Cash"
+            value={1000.0}
+            currency="PHP"
+            color="bg-acc-lime"
+          />
+          <Account
+            name="Cash"
+            value={1000.0}
+            currency="PHP"
+            color="bg-acc-yellow"
+          />
+          <Account
+            name="Cash"
+            value={1000.0}
+            currency="PHP"
+            color="bg-acc-amber"
+          />
+          <Account
+            name="Cash"
+            value={1000.0}
+            currency="PHP"
+            color="bg-acc-orange"
+          />
+          <Account
+            name="Cash"
+            value={1000.0}
+            currency="PHP"
+            color="bg-acc-deep-orange"
+          />
+          <Account
+            name="Cash"
+            value={1000.0}
+            currency="PHP"
+            color="bg-acc-grey"
+          />
+          <Account
+            name="Cash"
+            value={1000.0}
+            currency="PHP"
+            color="bg-acc-blue-grey"
           />
         </div>
       </div>
