@@ -1,14 +1,14 @@
 import { MdDataUsage, MdHome, MdInsertChart, MdMenu } from "react-icons/md";
 import NavButton from "./NavButton";
-// import logo from "./media/logo.png";
 
 function Navbar() {
   return (
     <div className="absolute bottom-0 w-full flex flex-row gap-5 bg-primary">
-      <NavButton label="Home" icon={<MdHome />} />
-      <NavButton label="Budgets" icon={<MdDataUsage />} />
-      <NavButton label="Stats" icon={<MdInsertChart />} />
-      <NavButton label="More" icon={<MdMenu />} />
+      {/* TODO: Toggle isSelected via current route */}
+      <NavButton label="Home" icon={<MdHome />} isSelected={true} />
+      <NavButton label="Budgets" icon={<MdDataUsage />} isSelected={false} />
+      <NavButton label="Stats" icon={<MdInsertChart />} isSelected={false} />
+      <NavButton label="More" icon={<MdMenu />} isSelected={false} />
     </div>
   );
 }
