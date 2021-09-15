@@ -1,6 +1,10 @@
+import "product-sans-webfont/GoogleSans.css";
+
 import Navbar from "./Navbar";
 import NewRecordButton from "./NewRecordButton";
-import "product-sans-webfont/GoogleSans.css";
+import AccountList from "./AccountList";
+
+// TODO: Integrate Firebase
 // import { initializeApp } from "firebase/app";
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -22,6 +26,7 @@ import "product-sans-webfont/GoogleSans.css";
 function App() {
   return (
     <div className="App">
+      <AccountList />
       <NewRecordButton />
       <Navbar />
     </div>
