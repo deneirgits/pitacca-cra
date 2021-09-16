@@ -15,14 +15,14 @@ module.exports = {
         primlight: "#b2fef7",
         primdark: "#4f9a94",
         primtext: "#004d40",
-        primbg: "#e0f2f1",
+        primbg: "#f0fcfc",
         primselected: "#4db6ac",
 
         secondary: "#ffab91",
         seclight: "#ffddc1",
         secdark: "#c97b63",
         sectext: "#bf360c",
-        secgb: "#fbe9e7",
+        secgb: "#fcf1f0",
         secselected: "#ff8a65",
 
         "rec-inc": "#66bb6a",

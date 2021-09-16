@@ -21,8 +21,8 @@ function Record(props: Props) {
   }).format(props.value);
 
   return (
-    <div className="flex p-2 text-sm">
-      <div className="pr-3 py-1 text-lg self-center">
+    <div className="flex py-1.5 text-sm">
+      <div className="pr-3 py-1 text-lg">
         <div className={`${props.categoryColor} rounded-full p-3 text-white`}>
           <span>{props.categoryIcon}</span>
         </div>

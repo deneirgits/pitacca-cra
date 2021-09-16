@@ -6,25 +6,62 @@ import {
 } from "react-icons/md";
 import Record from "./Record";
 
-function Records() {
+function RecordList() {
   return (
-    <div className="bg-primbg flex-grow">
-      <div className="rounded-t-2xl p-2 py-2 font-medium bg-primary text-primtext shadow-t-md">
-        <div className="text-center text-xs">————</div>
-        <div className="flex">
-          <div className="flex-grow">Records</div>
-          <div className="flex bg-secondary text-sectext rounded-md py-0.5 px-9 shadow">
-            <div className="pr-1">
-              <span className="text-xl">
-                <MdList />
-              </span>
-            </div>
-            <div className="text-sm">All</div>
+    <div className="bg-primbg p-2">
+      <div className="flex py-1.5">
+        <div className="flex-grow font-medium">Records</div>
+        <div className="flex bg-secondary text-sectext rounded-md py-0.5 px-9 shadow">
+          <div className="pr-1">
+            <span className="text-xl">
+              <MdList />
+            </span>
           </div>
+          <div className="text-sm">All</div>
         </div>
       </div>
-      <div className="bg-primbg">
-        {/* TODO: Remove placeholder records */}
+      {/* TODO: Remove placeholder records */}
+      <div className="h-80 pb-8 overflow-y-auto">
+        <Record
+          categoryIcon={<MdRestaurant />}
+          categoryColor="bg-acc-amber"
+          categoryName="Restaurant"
+          account="Cash"
+          currency="PHP"
+          date={new Date(2021, 9, 14)}
+          description="Joed's Lutong Hapon"
+          value={-500.0}
+        />
+        <Record
+          categoryIcon={<MdRestaurant />}
+          categoryColor="bg-acc-amber"
+          categoryName="Restaurant"
+          account="Cash"
+          currency="PHP"
+          date={new Date(2021, 9, 14)}
+          description="Joed's Lutong Hapon"
+          value={-500.0}
+        />
+        <Record
+          categoryIcon={<MdRestaurant />}
+          categoryColor="bg-acc-amber"
+          categoryName="Restaurant"
+          account="Cash"
+          currency="PHP"
+          date={new Date(2021, 9, 14)}
+          description="Joed's Lutong Hapon"
+          value={-500.0}
+        />
+        <Record
+          categoryIcon={<MdRestaurant />}
+          categoryColor="bg-acc-amber"
+          categoryName="Restaurant"
+          account="Cash"
+          currency="PHP"
+          date={new Date(2021, 9, 14)}
+          description="Joed's Lutong Hapon"
+          value={-500.0}
+        />
         <Record
           categoryIcon={<MdRestaurant />}
           categoryColor="bg-acc-amber"
@@ -60,4 +97,4 @@ function Records() {
   );
 }
 
-export default Records;
+export default RecordList;
