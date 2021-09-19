@@ -3,7 +3,7 @@ import "product-sans-webfont/GoogleSans.css";
 import Navbar from "./Navbar";
 import NewRecordButton from "./NewRecordButton";
 import AccountList from "./AccountList";
-import PullOutTab from "./PullOutTab";
+import BottomDrawer from "./BottomDrawer";
 
 // TODO: Integrate Firebase
 // import { initializeApp } from "firebase/app";
@@ -26,9 +26,9 @@ import PullOutTab from "./PullOutTab";
 
 function App() {
   return (
-    <div className="h-screen flex flex-col mb-20">
+    <div className="h-screen flex flex-col">
       <AccountList />
-      <PullOutTab />
+      <BottomDrawer />
       <NewRecordButton />
       <Navbar />
     </div>

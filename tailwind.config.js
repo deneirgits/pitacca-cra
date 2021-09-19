@@ -10,20 +10,21 @@ module.exports = {
       italic: "GoogleSansItalic",
     },
     extend: {
+      height: {
+        17: "68px",
+      },
       colors: {
         primary: "#80cbc4",
-        primlight: "#b2fef7",
-        primdark: "#4f9a94",
-        primtext: "#004d40",
+        primlight: "#e0f2f1",
+        primdark: "#4db6ac",
+        primtext: "#005644",
         primbg: "#f0fcfc",
-        primselected: "#4db6ac",
 
         secondary: "#ffab91",
-        seclight: "#ffddc1",
-        secdark: "#c97b63",
+        seclight: "#fbe9e7",
+        secdark: "#ff8a65",
         sectext: "#bf360c",
-        secgb: "#fcf1f0",
-        secselected: "#ff8a65",
+        secbg: "#fbe9e7",
 
         "rec-inc": "#66bb6a",
         "rec-dec": "#ef5350",
