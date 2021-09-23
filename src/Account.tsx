@@ -11,12 +11,12 @@ function Account(props: Props) {
   }).format(props.value);
 
   return (
-    <div className={`px-2 py-1 rounded-md shadow ${props.color}`}>
+    <button className={`text-left px-2 py-1 rounded-md shadow ${props.color}`}>
       <div className="text-xs">{props.name}</div>
       <div className="text-xs font-medium">
         {props.currency} {localeValue}
       </div>
-    </div>
+    </button>
   );
 }
 
