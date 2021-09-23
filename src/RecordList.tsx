@@ -5,8 +5,27 @@ import {
   MdRestaurant,
 } from "react-icons/md";
 import Record from "./Record";
+import { AnimationControls } from "framer-motion";
+import React from "react";
+interface Props {
+  controls: AnimationControls;
+  isExpanded: boolean;
+  setExpanded: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
-function RecordList() {
+function RecordList(props: Props) {
+  function onScroll(e: React.UIEvent) {
+    const current = e.currentTarget.scrollTop;
+
+    if (props.isExpanded && current === 0) {
+      props.controls.start({ y: 0 });
+      props.setExpanded(false);
+    } else if (!props.isExpanded && current > 50) {
+      props.controls.start({ y: -315 });
+      props.setExpanded(true);
+    }
+  }
+
   return (
     <div className="bg-primbg px-2">
       <div className="flex py-1.5">
@@ -21,7 +40,7 @@ function RecordList() {
         </button>
       </div>
       {/* TODO: Remove placeholder records */}
-      <div className="h-96 pb-20 overflow-y-auto">
+      <div className="h-screen pb-52 overflow-y-auto" onScroll={onScroll}>
         <Record
           categoryIcon={<MdRestaurant />}
           categoryColor="bg-acc-amber"

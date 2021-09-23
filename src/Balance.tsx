@@ -4,7 +4,7 @@ function Balance() {
   }).format(18000);
 
   return (
-    <div className="flex flex-col">
+    <div className="pt-3 flex flex-col">
       <div className="flex flex-row">
         <div className="flex-grow font-medium">Total Balance</div>
         <div className="text-xs self-end">vs past period</div>
