@@ -10,7 +10,7 @@ import PrivateRoute from "./utils/PrivateRoute";
 
 function App() {
     return (
-        <div className="h-screen flex flex-col">
+        <div className="h-screen flex flex-col bg-primbg">
             <AuthProvider>
                 <BrowserRouter>
                     <Route exact path="/login" component={Login} />
