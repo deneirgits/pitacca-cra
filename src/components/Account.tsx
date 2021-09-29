@@ -1,23 +1,26 @@
+import { QueryDocumentSnapshot } from "firebase/firestore";
+
 interface Props {
-  name: string;
-  value: number;
-  currency: string;
-  color: string;
+    accountDoc: QueryDocumentSnapshot;
 }
 
 function Account(props: Props) {
-  const localeValue = new Intl.NumberFormat([], {
-    minimumFractionDigits: 2,
-  }).format(props.value);
+    const account = props.accountDoc.data();
+    const localeValue = new Intl.NumberFormat([], {
+        minimumFractionDigits: 2,
+    }).format(account.balance);
 
-  return (
-    <button className={`text-left px-2 py-1 rounded-md shadow ${props.color}`}>
-      <div className="text-xs">{props.name}</div>
-      <div className="text-xs font-medium">
-        {props.currency} {localeValue}
-      </div>
-    </button>
-  );
+    return (
+        <button
+            className="text-left px-2 py-1 rounded-md shadow"
+            style={{ backgroundColor: account.color }}
+        >
+            <div className="text-xs">{account.name}</div>
+            <div className="text-xs font-medium">
+                {account.currency} {localeValue}
+            </div>
+        </button>
+    );
 }
 
 export default Account;

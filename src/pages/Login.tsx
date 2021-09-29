@@ -32,7 +32,7 @@ export default function Login() {
     }
 
     return (
-        <div className="bg-primbg h-full">
+        <div className="h-full">
             <div className="py-32 px-14 w-full text-primtext">
                 <h2 className="text-5xl mb-8 text-center font-bold">Pitacca</h2>
                 <form onSubmit={handleSubmit}>
