@@ -18,7 +18,7 @@ module.exports = {
                 primlight: "#e0f2f1",
                 primdark: "#4db6ac",
                 primtext: "#005644",
-                primbg: "#f0fcfc",
+                primbg: "#faffff",
 
                 secondary: "#ffab91",
                 seclight: "#fbe9e7",
@@ -60,7 +60,10 @@ module.exports = {
         },
     },
     variants: {
-        extend: {},
+        extend: {
+            backgroundColor: ["active"],
+            textColor: ["active"],
+        },
     },
     plugins: [require("@tailwindcss/forms")],
 };

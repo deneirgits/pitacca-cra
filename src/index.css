@@ -3,10 +3,37 @@
 @tailwind utilities;
 
 body {
-  overflow: hidden;
+    overflow: hidden;
 }
 
 ::-webkit-scrollbar {
-  width: 0; /* Remove scrollbar space */
-  background: transparent; /* Optional: just make scrollbar invisible */
+    width: 0; /* Remove scrollbar space */
+    background: transparent; /* Optional: just make scrollbar invisible */
+}
+
+.result {
+    width: 300px;
+    height: 140px;
+    padding: 20px 30px;
+    text-align: right;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+    border-right: 1px solid rgba(255, 255, 255, 0.02);
+}
+.result .history {
+    font-size: 19px;
+}
+.result .output {
+    font-size: 35px;
+    bottom: 18px;
+}
+.result .history,
+.result .output {
+    right: 25px;
+    width: 200vw;
+    position: absolute;
+    text-align: right;
+}
+.keyboard div.btn:active {
 }
