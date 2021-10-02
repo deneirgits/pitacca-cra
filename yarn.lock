@@ -10065,6 +10065,11 @@ react-firebase-hooks@^3.0.4:
   resolved "https://registry.yarnpkg.com/react-firebase-hooks/-/react-firebase-hooks-3.0.4.tgz#2185357d2bd6f7292552bc65f2459bbf9364e673"
   integrity sha512-eqhj8O5t/9nzGS/DfCGQX9goqbxTP2T/qrY2B13s4rx/VIJ4Bx3WnZgqxEVA0Y/mWZBh7gOlXSPdRGbxBq5d8g==
 
+react-hook-form@^7.17.0:
+  version "7.17.0"
+  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-7.17.0.tgz#a7ea8cf3416a7421228c5035856e5d69f99a80fb"
+  integrity sha512-hA6cbLxycyTRVL585jofNesc1sPtxn2GB1/KCV0P8lnmwzPmqhMxqbuX5TtTdTcBItf3grawfllkg1cv1iDMtQ==
+
 react-icons@^4.2.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-4.2.0.tgz#6dda80c8a8f338ff96a1851424d63083282630d0"

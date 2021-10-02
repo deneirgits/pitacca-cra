@@ -15,7 +15,9 @@ function App() {
             <AuthProvider>
                 <BrowserRouter>
                     <Route exact path="/login" component={Login} />
-                    <Route exact path="/records/new" component={NewRecord} />
+                    <PrivateRoute exact path="/records/new">
+                        <NewRecord />
+                    </PrivateRoute>
                     <PrivateRoute exact path="/">
                         <Home />
                         <NewRecordButton />

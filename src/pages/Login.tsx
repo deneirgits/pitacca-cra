@@ -36,24 +36,28 @@ export default function Login() {
             <div className="py-32 px-14 w-full text-primtext">
                 <h2 className="text-5xl mb-8 text-center font-bold">Pitacca</h2>
                 <form onSubmit={handleSubmit}>
-                    <label htmlFor="email">Email</label>
+                    <label htmlFor="email" className="font-medium">
+                        Email
+                    </label>
                     <input
                         type="email"
                         id="email"
                         name="email"
                         ref={emailRef}
-                        className="bg-primary rounded-full w-full py-2 border-0"
+                        className="bg-transparent rounded-full w-full py-2 border-2 border-primtext"
                     />
-                    <label htmlFor="password">Password</label>
+                    <label htmlFor="password" className="font-medium">
+                        Password
+                    </label>
                     <input
                         type="password"
                         id="password"
                         name="password"
                         ref={passwordRef}
-                        className="bg-primary rounded-full w-full py-2 border-0"
+                        className="bg-transparent rounded-full w-full py-2 border-2 border-primtext"
                     />
                     {error && <h2 className="text-sectext">{error}</h2>}
-                    <button className="bg-transparent rounded-xl w-full py-2 mt-10 border border-primtext">
+                    <button className="bg-primary rounded-xl w-full py-2 mt-10">
                         <input
                             type="submit"
                             disabled={loading}
