@@ -1,22 +1,36 @@
-import ResultView from "./ResultView";
-import Numpad from "./Numpad";
+import ResultView from "./FormValue/ResultView";
+import Numpad from "./FormValue/Numpad";
+import FormInput from "./FormInput";
+import Modal from "react-modal";
 import { useState } from "react";
+import { MdCheck } from "react-icons/md";
 
 let output = "";
-let history = "";
 let symbols = ["*", "-", "+", "/"];
 
-export default function NewRecord() {
-    const [state, setState] = useState({
-        history: "",
-        displayValue: "",
-    });
+Modal.setAppElement("#root");
+
+export default function ValueInput() {
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+    const [display, setDisplay] = useState("0");
+    const [result, setResult] = useState("");
+
     const updateState = () => {
-        setState({
-            history: history.toString(),
-            displayValue: output.toString(),
-        });
+        setDisplay(output.toString());
     };
+
+    const setValue = () => {
+        setResult(display);
+        closeModal();
+    };
+
+    function openModal() {
+        setModalIsOpen(true);
+    }
+
+    function closeModal() {
+        setModalIsOpen(false);
+    }
 
     // ONCLICK BUTTON CLICK
     const onClick = (id: string, keyType: string, value: string) => {
@@ -42,7 +56,6 @@ export default function NewRecord() {
     const functionKey = (id: string, lastInput: string) => {
         const resetOutput = (display: boolean) => {
             // RESET VALUES
-            history = "";
             output = "";
             // Update state if display == true
             display && updateState();
@@ -51,16 +64,14 @@ export default function NewRecord() {
             // CHECK IF LAST INPUT IS NUMBER AND OUTPUT IS NOT EMPTY
             if (!symbols.includes(lastInput) && output) {
                 try {
-                    history = output;
                     output = eval(
                         output.replace(/%/g, "*0.01")
                     ); /* eslint no-eval: 0 */
                     output = Number.isSafeInteger(output)
                         ? output
-                        : Number(output).toFixed(3);
+                        : Number(output).toFixed(2);
                     updateState();
-                    // UPDATE HISTORY TO RESULT AND RESET OUTPUT
-                    history = output;
+                    // RESET OUTPUT
                     output = "";
                 } catch (error) {
                     output = "Error";
@@ -110,14 +121,41 @@ export default function NewRecord() {
     };
 
     return (
-        <div className="app">
-            <div className="text-primtext">
-                <ResultView
-                    history={state.history}
-                    output={state.displayValue}
-                />
-                <Numpad onClick={onClick} />
-            </div>
-        </div>
+        <>
+            <FormInput
+                label="Value"
+                name="value"
+                required
+                type="number"
+                step="0.01"
+                value={result}
+                onClick={openModal}
+            />
+            <Modal
+                isOpen={modalIsOpen}
+                onRequestClose={closeModal}
+                contentLabel="Test Modal"
+                className="absolute top-1/4 right-5 left-5 shadow bg-primbg rounded-xl"
+                overlayClassName="fixed top-0 right-0  bottom-0 left-0 bg-gray-600 bg-opacity-25"
+            >
+                <div className="app">
+                    <div className="text-primtext">
+                        <ResultView output={display} />
+                        <Numpad onClick={onClick} />
+                        <button
+                            className="flex bg-primary rounded-md py-0.5 px-9 shadow float-right m-2"
+                            onClick={setValue}
+                        >
+                            <div className="pr-1">
+                                <span className="text-xl">
+                                    <MdCheck />
+                                </span>
+                            </div>
+                            <div className="text-sm">Insert</div>
+                        </button>
+                    </div>
+                </div>
+            </Modal>
+        </>
     );
 }

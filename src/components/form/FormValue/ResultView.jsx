@@ -1,16 +1,19 @@
-import React from "react";
 import PropTypes from "prop-types";
 
-function ResultView({ history, output }) {
+function ResultView({ output }) {
     // CHANGE COLOR TO RED IF ERROR OCCURRED
     let colorStyle = {
         color: output === "Error" ? "#f11" : "#000",
     };
 
     return (
-        <div style={colorStyle} className="result">
-            <div className="history">{history}</div>
-            <div className="output">{output}</div>
+        <div
+            style={colorStyle}
+            className="w-full h-20 relative overflow-x-auto"
+        >
+            <div className="right-9 w-full text-right absolute text-4xl bottom-4">
+                {output}
+            </div>
         </div>
     );
 }

@@ -2,6 +2,7 @@ import { SubmitHandler } from "react-hook-form";
 import Form from "../components/form/Form";
 import FormInput from "../components/form/FormInput";
 import FormSelect from "../components/form/FormSelect";
+import FormValue from "../components/form/FormValue";
 
 export type Inputs = {
     account: string;
@@ -58,15 +59,7 @@ export default function NewRecord() {
                     type="text"
                     autocomplete
                 />
-
-                <FormInput
-                    label="Value"
-                    name="value"
-                    required
-                    type="number"
-                    default={0}
-                    step="0.01"
-                />
+                <FormValue />
             </Form>
         </div>
     );

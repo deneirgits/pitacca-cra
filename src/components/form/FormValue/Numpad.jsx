@@ -39,10 +39,10 @@ const keys = [
 
 function Numpad({ onClick }) {
     return (
-        <div className="keyboard grid grid-cols-4 ">
+        <div className="keyboard grid grid-cols-4">
             {keys.map((key) => (
                 <div
-                    className={`btn grid place-content-center p-3 h-14 transition duration-150 ease-in-out active:bg-secbg active:text-sectext ${key.className}`}
+                    className={`btn grid place-content-center h-14 transition duration-150 ease-in-out active:bg-secbg active:text-sectext ${key.className}`}
                     id={key.id}
                     key={key.id}
                     onClick={() => onClick(key.id, key.class, key.value)}

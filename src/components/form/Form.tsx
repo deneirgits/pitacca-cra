@@ -22,7 +22,7 @@ export default function Form(props: Props) {
             <FormProvider context={{ register: register, errors: errors }}>
                 <form onSubmit={handleSubmit(props.onSubmit)}>
                     {props.children}
-                    <button className="bg-primary rounded-xl w-full py-2 mt-10">
+                    <button className="bg-primary rounded-xl w-full py-2 mt-10 shadow">
                         <input
                             type="submit"
                             className="bg-transparent font-medium"

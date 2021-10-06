@@ -57,7 +57,7 @@ export default function Login() {
                         className="bg-transparent rounded-full w-full py-2 border-2 border-primtext"
                     />
                     {error && <h2 className="text-sectext">{error}</h2>}
-                    <button className="bg-primary rounded-xl w-full py-2 mt-10">
+                    <button className="bg-primary rounded-xl w-full py-2 mt-10 shadow">
                         <input
                             type="submit"
                             disabled={loading}

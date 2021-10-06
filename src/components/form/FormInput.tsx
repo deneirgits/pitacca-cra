@@ -9,6 +9,8 @@ interface Props {
     autocomplete?: boolean;
     step?: string;
     default?: any;
+    onClick?: () => any;
+    value?: any;
 }
 
 export default function FormInput(props: Props) {
@@ -25,6 +27,8 @@ export default function FormInput(props: Props) {
                 autoComplete={props.autocomplete ? "on" : "off"}
                 step={props.step}
                 defaultValue={props.default}
+                onClick={props.onClick}
+                value={props.value}
                 {...register(props.name, { required: props.required })}
             />
             {errors[props.name] && <h2 className="text-sectext">* Invalid</h2>}
