@@ -12,15 +12,16 @@ Modal.setAppElement("#root");
 
 export default function ValueInput() {
     const [modalIsOpen, setModalIsOpen] = useState(false);
-    const [display, setDisplay] = useState("0");
     const [result, setResult] = useState("");
+    const [display, setDisplay] = useState(result);
 
     const updateState = () => {
         setDisplay(output.toString());
     };
 
     const setValue = () => {
-        setResult(display);
+        onClick("calc", "function", "=");
+        setResult(output);
         closeModal();
     };
 
@@ -32,11 +33,12 @@ export default function ValueInput() {
         setModalIsOpen(false);
     }
 
-    // ONCLICK BUTTON CLICK
-    const onClick = (id: string, keyType: string, value: string) => {
-        // CONVERT TO STRING
+    const onClick = (
+        id: string,
+        keyType: string,
+        value: string | JSX.Element
+    ) => {
         output = output.toString();
-        // GET LAST INPUT VALUE
         let lastInput = output.slice(-1);
 
         switch (keyType) {
@@ -53,34 +55,30 @@ export default function ValueInput() {
                 return;
         }
     };
-    const functionKey = (id: string, lastInput: string) => {
-        const resetOutput = (display: boolean) => {
-            // RESET VALUES
-            output = "";
-            // Update state if display == true
-            display && updateState();
-        };
-        const calculate = (lastInput: string) => {
-            // CHECK IF LAST INPUT IS NUMBER AND OUTPUT IS NOT EMPTY
-            if (!symbols.includes(lastInput) && output) {
-                try {
-                    output = eval(
-                        output.replace(/%/g, "*0.01")
-                    ); /* eslint no-eval: 0 */
-                    output = Number.isSafeInteger(output)
-                        ? output
-                        : Number(output).toFixed(2);
-                    updateState();
-                    // RESET OUTPUT
-                    output = "";
-                } catch (error) {
-                    output = "Error";
-                    updateState();
-                    resetOutput(false);
-                }
+    const resetOutput = (display: boolean) => {
+        output = "";
+        display && updateState();
+    };
+    const calculate = (lastInput: string) => {
+        // Check if last input is number and output is not empty
+        if (!symbols.includes(lastInput) && output) {
+            try {
+                output = eval(
+                    output.replace(/%/g, "*0.01")
+                ); /* eslint no-eval: 0 */
+                output = Number.isSafeInteger(output)
+                    ? output
+                    : Number(output).toFixed(2);
+                updateState();
+            } catch (error) {
+                output = "Error";
+                updateState();
+                resetOutput(false);
             }
-        };
+        }
+    };
 
+    const functionKey = (id: string, lastInput: string) => {
         switch (id) {
             case "clear":
                 resetOutput(true);
@@ -96,22 +94,22 @@ export default function ValueInput() {
                 return;
         }
     };
-    const operatorKey = (value: string, lastInput: string) => {
-        // PREVENT STARTING WITH AN OPERATOR
+    const operatorKey = (value: string | JSX.Element, lastInput: string) => {
+        // Prevent starting with an operator
         if (output === "" && value !== "-") {
             return;
         } else {
-            // REPLACE OPERATOR SYMBOL IF LASTINPUT IS OPERATOR
+            // Replace operator symbol if lastinput is operator
             symbols.includes(lastInput)
                 ? (output = output.slice(0, -1) + value)
                 : (output += value);
         }
         updateState();
     };
-    const numberKey = (value: string, lastInput: string) => {
-        // PREVENT ENTERING . OR % MULTIPY TIMES
+    const numberKey = (value: string | JSX.Element, lastInput: string) => {
+        // Prevent entering . or % multipy times
         if (value === "." || value === "%") {
-            // PREVENT STARTING WITH '%'
+            // Prevent starting with '%'
             if (output === "" && value === "%") return;
             lastInput === "." || lastInput === "%" || (output += value);
         } else {

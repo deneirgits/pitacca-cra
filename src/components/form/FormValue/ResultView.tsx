@@ -1,9 +1,13 @@
 import PropTypes from "prop-types";
 
-function ResultView({ output }) {
+interface Props {
+    output: string;
+}
+
+function ResultView(props: Props) {
     // CHANGE COLOR TO RED IF ERROR OCCURRED
     let colorStyle = {
-        color: output === "Error" ? "#f11" : "#000",
+        color: props.output === "Error" ? "#f11" : "#000",
     };
 
     return (
@@ -11,8 +15,12 @@ function ResultView({ output }) {
             style={colorStyle}
             className="w-full h-20 relative overflow-x-auto"
         >
-            <div className="right-9 w-full text-right absolute text-4xl bottom-4">
-                {output}
+            <div
+                className={`right-9 w-full text-right absolute text-4xl bottom-4 ${
+                    props.output === "Error" ? "text-sectext" : "text-primtext"
+                }`}
+            >
+                {props.output}
             </div>
         </div>
     );

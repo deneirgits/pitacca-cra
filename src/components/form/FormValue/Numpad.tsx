@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import { MdArrowBack } from "react-icons/md";
 
 const keys = [
@@ -37,7 +36,11 @@ const keys = [
     { id: "add", class: "operator", value: "+", className: "bg-primlight" },
 ];
 
-function Numpad({ onClick }) {
+interface Props {
+    onClick: (id: string, keyType: string, value: string | JSX.Element) => void;
+}
+
+export default function Numpad(props: Props) {
     return (
         <div className="keyboard grid grid-cols-4">
             {keys.map((key) => (
@@ -45,7 +48,7 @@ function Numpad({ onClick }) {
                     className={`btn grid place-content-center h-14 transition duration-150 ease-in-out active:bg-secbg active:text-sectext ${key.className}`}
                     id={key.id}
                     key={key.id}
-                    onClick={() => onClick(key.id, key.class, key.value)}
+                    onClick={() => props.onClick(key.id, key.class, key.value)}
                 >
                     {key.value}
                 </div>
@@ -53,9 +56,3 @@ function Numpad({ onClick }) {
         </div>
     );
 }
-
-Numpad.propTypes = {
-    onClick: PropTypes.func,
-};
-
-export default Numpad;
