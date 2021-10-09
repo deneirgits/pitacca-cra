@@ -18,7 +18,7 @@ module.exports = {
                 primlight: "#e0f2f1",
                 primdark: "#4db6ac",
                 primtext: "#005644",
-                primbg: "#f0fcfc",
+                primbg: "#faffff",
 
                 secondary: "#ffab91",
                 seclight: "#fbe9e7",
@@ -57,10 +57,16 @@ module.exports = {
                 "t-2xl": "0 -25px 50px -12px rgba(0, 0, 0, 0.25)",
                 "t-3xl": "0 -35px 60px -15px rgba(0, 0, 0, 0.3)",
             },
+            gridTemplateRows: {
+                7: "repeat(7, minmax(0, 1fr))",
+            },
         },
     },
     variants: {
-        extend: {},
+        extend: {
+            backgroundColor: ["active"],
+            textColor: ["active"],
+        },
     },
     plugins: [require("@tailwindcss/forms")],
 };

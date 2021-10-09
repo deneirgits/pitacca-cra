@@ -1,4 +1,3 @@
-import Icons from "../utils/Icons";
 import Record from "./Record";
 import { AnimationControls } from "framer-motion";
 import React, { useCallback, useEffect, useState } from "react";
@@ -9,6 +8,7 @@ import {
     QuerySnapshot,
 } from "firebase/firestore";
 import { db } from "../utils/Firebase";
+import { MdList } from "react-icons/md";
 interface Props {
     controls: AnimationControls;
     isExpanded: boolean;
@@ -46,13 +46,12 @@ function RecordList(props: Props) {
                 <button className="flex bg-secondary text-sectext rounded-md py-0.5 px-9 shadow">
                     <div className="pr-1">
                         <span className="text-xl">
-                            <Icons.MdList />
+                            <MdList />
                         </span>
                     </div>
                     <div className="text-sm">All</div>
                 </button>
             </div>
-            {/* TODO: Remove placeholder records */}
             <div className="h-screen pb-52 overflow-y-auto" onScroll={onScroll}>
                 {records?.docs.map((doc) => {
                     return <Record recordDoc={doc} key={doc.id} />;

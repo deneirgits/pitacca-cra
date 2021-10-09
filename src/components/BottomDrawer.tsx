@@ -17,7 +17,7 @@ function BottomDrawer() {
             controls.start({ y: 0 });
             setExpanded(false);
         } else {
-            controls.start({ y: -315 });
+            controls.start({ y: -360 });
             setExpanded(true);
         }
     }
