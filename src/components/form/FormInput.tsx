@@ -1,4 +1,3 @@
-// import { FieldError } from "react-hook-form";
 import { useForm } from "../../utils/FormContext";
 
 interface Props {
@@ -11,6 +10,7 @@ interface Props {
     default?: any;
     onClick?: () => any;
     value?: any;
+    readOnly?: boolean;
 }
 
 export default function FormInput(props: Props) {
@@ -29,6 +29,12 @@ export default function FormInput(props: Props) {
                 defaultValue={props.default}
                 onClick={props.onClick}
                 value={props.value}
+                readOnly={props.readOnly}
+                onFocus={(e) =>
+                    (e.target.readOnly = props.readOnly
+                        ? props.readOnly
+                        : false)
+                }
                 {...register(props.name, { required: props.required })}
             />
             {errors[props.name] && <h2 className="text-sectext">* Invalid</h2>}

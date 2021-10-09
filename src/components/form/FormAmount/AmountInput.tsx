@@ -1,16 +1,21 @@
-import ResultView from "./FormValue/ResultView";
-import Numpad from "./FormValue/Numpad";
-import FormInput from "./FormInput";
+import ResultView from "./ResultView";
+import Numpad from "./Numpad";
 import Modal from "react-modal";
 import { useState } from "react";
 import { MdCheck } from "react-icons/md";
+import { useForm } from "../../../utils/FormContext";
 
 let output = "";
 let symbols = ["*", "-", "+", "/"];
 
 Modal.setAppElement("#root");
 
-export default function ValueInput() {
+interface Props {
+    currency: string;
+}
+
+export default function AmountInput(props: Props) {
+    const { register, errors } = useForm();
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [result, setResult] = useState("");
     const [display, setDisplay] = useState(result);
@@ -19,7 +24,7 @@ export default function ValueInput() {
         setDisplay(output.toString());
     };
 
-    const setValue = () => {
+    const setAmount = () => {
         onClick("calc", "function", "=");
         setResult(output);
         closeModal();
@@ -120,15 +125,28 @@ export default function ValueInput() {
 
     return (
         <>
-            <FormInput
-                label="Value"
-                name="value"
-                required
-                type="number"
-                step="0.01"
-                value={result}
-                onClick={openModal}
-            />
+            <div className="py-1">
+                <label htmlFor="amount" className="font-medium">
+                    Amount
+                </label>
+                <div className="flex flex-row gap-2">
+                    <p className="font-medium py-2 w-11">{props.currency}</p>
+                    <input
+                        type="number"
+                        className="bg-transparent rounded-full w-full py-2 border-2 border-primtext"
+                        autoComplete="off"
+                        step="0.01"
+                        onClick={openModal}
+                        value={result}
+                        readOnly={true}
+                        onFocus={(e) => (e.target.readOnly = true)}
+                        {...register("amount", { required: true })}
+                    />
+                    {errors["amount"] && (
+                        <h2 className="text-sectext">* Invalid</h2>
+                    )}
+                </div>
+            </div>
             <Modal
                 isOpen={modalIsOpen}
                 onRequestClose={closeModal}
@@ -141,8 +159,8 @@ export default function ValueInput() {
                         <ResultView output={display} />
                         <Numpad onClick={onClick} />
                         <button
-                            className="flex bg-primary rounded-md py-0.5 px-9 shadow float-right m-2"
-                            onClick={setValue}
+                            className="flex bg-primary rounded-md py-1 px-9 shadow float-right m-2"
+                            onClick={setAmount}
                         >
                             <div className="pr-1">
                                 <span className="text-xl">
